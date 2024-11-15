@@ -5,6 +5,9 @@ export const ComponentCalculator = () => {
     const [num1, setNum1] = useState(0)
     const [num2, setNum2] = useState(0)
     const [result, setResult] = useState(0)
+    const [multiply, setMultiplication] = useState(0)
+    const [subtract, setSubtraction] = useState(0)
+    const [divide, setDivision] = useState(0)
 
     const submitHandler = (event)=>{
 
@@ -13,6 +16,21 @@ export const ComponentCalculator = () => {
         console.log(num1)
         console.log(num2)
         setResult( num1 + num2)
+        
+    }
+
+    const multiplyEvent = (event)=>{
+        
+        setMultiplication (num1 * num2)
+    }
+    const subtractEvent = (event)=>{
+        
+        setSubtraction(num1 - num2)
+    }
+
+    const divideEvent = (event)=>{
+        
+        setDivision(num1 / num2)
     }
 
     const inputNum1OnChange = (event)=>{
@@ -40,9 +58,15 @@ export const ComponentCalculator = () => {
                     <input onChange={inputNum2OnChange} type="number" name="inputNum2" className="form-control" />
                 </div>
                 <button  className="btn btn-primary" >+</button>
+                <button onClick={multiplyEvent} type="button" className="btn btn-primary mx-2" >Multiply</button>
+                <button  onClick={subtractEvent} type="button" className="btn btn-primary mx-2" >Subtract</button>
+                <button  onClick={divideEvent} type="button" className="btn btn-primary mx-2" >Divide</button>
             </form>
 
-            <p>Result: {result} </p>
+            <p>Addition: {result} </p>
+            <p>Multiplication: {multiply} </p>
+            <p>Subtraction: {subtract} </p>
+            <p>Division: {divide} </p>
         </>
     )
 
